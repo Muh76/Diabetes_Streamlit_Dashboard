@@ -35,24 +35,6 @@ st.markdown("""
 
 # Header
 st.markdown('<h1 class="main-header">🏥 Diabetes Readmission Prediction Dashboard</h1>', unsafe_allow_html=True)
-# Navigation buttons (since sidebar might not be visible)
-col1, col2, col3, col4 = st.columns(4)
-with col1:
-    if st.button("🏠 Home"):
-        st.session_state.page = "🏠 Home"
-with col2:
-    if st.button("📊 Model Performance"):
-        st.session_state.page = "📊 Model Performance"
-with col3:
-    if st.button("🔍 Risk Analysis"):
-        st.session_state.page = "🔍 Risk Analysis"
-with col4:
-    if st.button("💰 Business Impact"):
-        st.session_state.page = "💰 Business Impact"
-
-# Initialize page if not set
-if "page" not in st.session_state:
-    st.session_state.page = "🏠 Home"
 
 # Sidebar
 st.sidebar.title("🎛️ Dashboard Controls")
@@ -60,7 +42,7 @@ st.sidebar.markdown("---")
 st.sidebar.warning("🚧 **DEMO MODE** - This is a demonstration dashboard")
 
 # Navigation
-page = st.session_state.page if "page" in st.session_state else st.sidebar.selectbox(
+page = st.sidebar.selectbox(
     "📱 Select Dashboard:",
     ["🏠 Home", "📊 Model Performance", "🔍 Risk Analysis", "💰 Business Impact"]
 )
